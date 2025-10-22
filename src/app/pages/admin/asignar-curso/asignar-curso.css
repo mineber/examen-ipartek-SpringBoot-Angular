@@ -1,0 +1,71 @@
+.thumb-list-imagen{
+height: 50px;
+width: auto;
+border-radius: 0.5rem;
+vertical-align: middle;
+}
+
+h1{
+    color: orange !important;
+    
+    background-color: #3b3b3b;
+}
+
+.contenedor{
+    padding: 1rem !important;
+}
+.contenedor-listado{
+
+padding: 1rem;
+}
+
+.contenedor-tabla{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.table{
+width: 100%;
+}
+
+table .item-inactivo, table .item-noactual{
+font-size: 1.2rem;
+color: red;
+text-align: center;
+}
+
+table .item-activo, table .item-actual{
+font-size: 1.2rem;
+color: green;
+text-align: center;
+}
+
+.centrar-activo{
+text-align: center ;
+}
+
+.centrar-actual{
+text-align: center ;
+}
+
+.centrar-numero-banners{
+text-align: center ;
+}
+
+.centrar-portada{
+text-align:center;
+}
+
+thead tr{
+border-bottom: orange solid 1px;
+border-top: orange solid 1px;
+}
+
+
+td,th{
+vertical-align: middle;
+border: 0px !important;
+    background-color: #3b3b3b;
+    color: orange !important;
+}

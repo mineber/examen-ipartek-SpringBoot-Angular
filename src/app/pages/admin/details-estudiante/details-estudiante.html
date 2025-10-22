@@ -1,0 +1,88 @@
+<section class="contenedor">
+    @if( cargaCompletada ){
+    <app-preloader />
+
+    } @else {
+        
+    <h1>Editar Estudiante con id {{estudiante.id}}</h1>
+    <div class="contenedor-formulario">
+
+        <form #form="ngForm" class="formulario" >
+
+            <div style="display: flex; gap: 10px; flex-direction: column; margin-bottom: 20px;">
+                <label for="tipo">Nombre del estudiante</label>
+                <input type="text" id="estudiante" class="form-control" name="nombre" required
+                    style="text-transform:uppercase" autocomplete="off" disabled [(ngModel)]="estudiante.nombre">
+            </div>
+
+
+            <div style="display: flex; gap: 10px; flex-direction: column; margin-bottom: 20px;">
+                <label for="tipo">Dni del estudiante</label>
+                <input type="text" id="dni" class="form-control" name="dni" required style="text-transform:uppercase"
+                    autocomplete="off" disabled [(ngModel)]="estudiante.dni">
+            </div>
+            <div style="display: flex; gap: 10px; flex-direction: column; margin-bottom: 20px;">
+                <label for="tipo">Activo "1 activo, 0 no activo"</label>
+                <input type="text" id="dni" class="form-control" name="dni" required style="text-transform:uppercase"
+                    autocomplete="off" disabled [(ngModel)]="estudiante.activo">
+            </div>
+<div class="d-flex justify-content-center">
+            <div class="separador"></div></div>
+
+            <h1 >Cursos asignados a {{estudiante.nombre}}</h1>
+
+           <ul><li><div class="contenedor-boton w-100 d-flex justify-content-end pr-sm-3" style="padding-right: 15px;">
+
+                <button class="botones-header" type="button" [disabled]="form.invalid"
+                    [routerLink]="['/admin/asignar-curso', estudiante.id]">Asignar Curso</button>
+
+
+            </div></li></ul> 
+            <div class="contenedor-tabla" style="margin-top: 40px;">
+                @if (cursosest.length === 0) {
+                <h2 style="color:orange !important;">El alumno no tiene ningún curso asignado</h2>
+                }@else{
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Horas</th>
+                            <th scope="col" class="centrar-activo d-flex w-100 justify-content-center">Eliminar clase
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (dato of cursosest; track dato.id ) {
+
+
+
+                        <tr>
+                            <th scope="row">{{dato.id}}</th>
+                            <td> {{dato.nombre}}</td>
+                            <td> {{dato.horas}} </td>
+                            <td scop>
+                                <div class="d-flex w-100 justify-content-center" style="margin:0;"><button type="submit"
+                                        class="btn btn-danger btn-sn" style="margin:0;"
+                                        (click)="delete(estudiante.id, dato.id)">Eliminar</button></div>
+                            </td>
+
+
+
+                        </tr>}
+                    </tbody>
+                </table>
+                }
+
+
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+    }
+</section>

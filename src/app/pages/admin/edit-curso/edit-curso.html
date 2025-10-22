@@ -1,0 +1,44 @@
+<section class="contenedor">
+
+    <h1>Curso con id {{curso.id}}</h1>
+    @if( cargaCompletada ){
+    <app-preloader />
+    } @else{
+    <div class="contenedor-formulario">
+
+        <form #form="ngForm" class="formulario" (ngSubmit)="edit()">
+
+            <div>
+                <label for="tipo">curso*</label>
+                <input type="text" id="curso" class="form-control" name="nombre" required
+                    style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.nombre">
+            </div>
+            <div>
+                <label for="tipo">Horas*</label>
+                <input type="number" id="horas" class="form-control" name="horas" required
+                    style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.horas">
+            </div>
+            <div>
+                <label for="tipo">Profesor*</label>
+                <input type="text" id="profesor" class="form-control" name="profesor" required
+                    style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.profesor">
+            </div>
+            <ul>
+                <li>
+                    <div class="contenedor-boton">
+
+                        <button class="botones-header" type="submit" [disabled]="form.invalid">Editar curso</button>
+
+
+                    </div>
+                </li>
+            </ul>
+
+
+        </form>
+
+
+    </div>
+
+    }
+</section>

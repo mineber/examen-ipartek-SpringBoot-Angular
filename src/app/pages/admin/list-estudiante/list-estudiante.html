@@ -1,0 +1,61 @@
+<section class="contenedor-listado">
+
+
+    <h1>Listado de estudiantes</h1>
+    @if( cargaCompletada ){
+    <app-preloader />
+    } @else{
+        <ul ><li>
+    <div >
+        <button type="button" class="botones-header" [routerLink]="['../../admin/add-estudiante']">+ Agregar
+            Estudiante</button>
+    </div></li></ul>
+
+    <div class="contenedor-tabla">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col" class="centrar-activo">Detalles</th>
+                    <th scope="col" class="centrar-activo">Editar</th>
+                    <th scope="col" class="centrar-activo">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (dato of datos; track dato.id ) {
+                <tr>
+                    <th scope="row">{{dato.id}}</th>
+                    <td>{{dato.nombre}}</td>
+                    <td>{{dato.dni}}</td>
+                    <td>
+                        <div class="d-flex w-100 justify-content-center"><button type="button"
+                                class="btn btn-warning btn-sn" style="margin:0;"
+                                [routerLink]="['/admin/details-estudiante', dato.id]">Detalles</button></div>
+                    </td>
+
+                    <td>
+                        <div class="d-flex w-100 justify-content-center"><button type="button"
+                                class="btn btn-success btn-sn" style="margin:0;"
+                                [routerLink]="['/admin/edit-estudiante', dato.id]">Editar</button></div>
+                    </td>
+                    <td>
+                        <div class="d-flex w-100 justify-content-center"><button type="submit"
+                                class="btn btn-danger btn-sn" style="margin:0;"
+                                (click)="delete(dato.id)">Eliminar</button></div>
+                    </td>
+
+
+
+                </tr>}
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+
+    }
+</section>

@@ -1,0 +1,32 @@
+<section class="contenedor">
+
+    <h1>Añadir Estudiante</h1>
+
+    <div class="contenedor-formulario">
+
+        <form #form="ngForm" class="formulario" (ngSubmit)="add()">
+           
+                <div class="p-3">
+                    <label for="tipo">NOMBRE*</label>
+                    <input type="text" id="tipo" class="form-control" placeholder="Introduzca su nombre" name="nombre" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="estudiante.nombre">
+                </div>
+                <div class="p-3">
+                    <label for="tipo">DNI*</label>
+                    <input type="text" id="tipo" class="form-control" placeholder="Introduzca su DNI" name="DNI" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="estudiante.dni">
+                </div>
+<ul><li><div class="contenedor-boton">
+
+                <button class="botones-header" type="submit" [disabled]="form.invalid">Añadir</button>
+
+
+            </div></li></ul>
+            
+
+
+        </form>
+
+
+    </div>
+
+
+</section>

@@ -1,0 +1,42 @@
+<section class="contenedor-listado">
+
+
+    <h1>Listado de cursos disponibles para {{estudiante.nombre}}</h1>
+    @if( !cargaCompletada ){
+        <app-preloader/>
+    } @else{
+    
+    <div class="contenedor-tabla">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Profesor</th>
+                    <th scope="col">Horas</th>
+                    <th scope="col" class="centrar-activo">Asignar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (dato of cursosDisponibles; track dato.id ) {
+                <tr>
+                    <th scope="row">{{dato.id}}</th>
+                    <td>{{dato.nombre}}</td>
+                    <td>{{dato.profesor}}</td>
+                    <td>{{dato.horas}}</td>
+                    <td><div class="d-flex w-100 justify-content-center"><button type="button" class="btn btn-success btn-sn" style="margin:0;" (click)="asignar(estudiante.id, dato.id)">Asignar</button></div></td>
+                    
+                    
+                
+                
+                </tr>}
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+
+}
+</section>

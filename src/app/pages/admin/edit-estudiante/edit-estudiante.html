@@ -1,0 +1,34 @@
+<section class="contenedor">
+<h1>Editar Estudiante con id {{estudiante.id}}</h1>
+@if( cargaCompletada ){
+<app-preloader/>
+    
+} @else {
+<div class="contenedor-formulario">
+
+<form #form = "ngForm" class="formulario" (ngSubmit)="edit()">
+
+<div>
+<label for="tipo">Estudiante*</label>
+<input type="text" id="estudiante" class="form-control" name="nombre" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="estudiante.nombre">
+<label for="tipo">DNI*</label>
+<input type="text" id="dni" class="form-control" name="dni" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="estudiante.dni">
+</div>
+
+
+<ul><li>
+<div class="contenedor-boton">
+
+<button class="botones-header" type="submit" [disabled] ="form.invalid">Editar estudiante</button>
+
+
+</div></li></ul>
+
+
+</form>
+
+
+</div>
+
+}
+</section>

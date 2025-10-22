@@ -1,0 +1,36 @@
+<section class="contenedor">
+
+    <h1>Añadir Curso</h1>
+
+    <div class="contenedor-formulario">
+
+        <form #form="ngForm" class="formulario" (ngSubmit)="add()"> 
+               <div class="p-3">
+                    <label for="tipo">NOMBRE*</label>
+                    <input type="text" id="tipo" class="form-control" placeholder="Introduzca el nombre del curso" name="nombre" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.nombre">
+                </div>
+                <div class="p-3">
+                    <label for="tipo">Profesor*</label>
+                    <input type="text" id="tipo" placeholder="Introduzca el nombre del profesor" class="form-control" name="profesor" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.profesor">
+                </div>
+                <div class="p-3">
+                    <label for="tipo">Horas*</label>
+                    <input type="number" id="tipo" class="form-control" name="horas" placeholder="Introduzca el número de horas del curso" required style="text-transform:uppercase" autocomplete="off" [(ngModel)]="curso.horas">
+                </div>
+
+<ul><li><div class="contenedor-boton">
+
+                <button class="botones-header" type="submit" [disabled]="form.invalid">Añadir</button>
+
+
+            </div></li></ul>
+            
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
